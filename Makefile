@@ -21,6 +21,7 @@ PKG_MAINTAINER:=Evans Mike (etnperlong@gmail.com)
 PKG_LICENSE:=GPLv3
 
 PKG_FIXUP:=autoreconf
+PKG_BUILD_DEPENDS:=gettext libiconv
 
 
 include $(INCLUDE_DIR)/package.mk
