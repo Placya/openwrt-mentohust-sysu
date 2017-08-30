@@ -22,7 +22,6 @@ PKG_LICENSE:=GPLv3
 
 PKG_FIXUP:=autoreconf
 
-PKG_BUILD_DEPENDES:=gettext
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -45,7 +44,10 @@ define Build/Prepare
 endef
 
 # autogen first
-CONFIGURE_CMD =$(PKG_BUILD_DIR)/autogen.sh
+define Build/Configure
+	( cd $(PKG_BUILD_DIR); ./autogen.sh )
+	$(call Build/Configure/Default)
+endef
 
 CONFIGURE_ARGS += \
 	--disable-encodepass \
