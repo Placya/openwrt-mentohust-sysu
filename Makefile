@@ -20,8 +20,6 @@ PKG_SOURCE_VERSION:=595aa096f359e4bbf077ac0de3d10aa24882c568
 PKG_MAINTAINER:=Evans Mike (etnperlong@gmail.com)
 PKG_LICENSE:=GPLv3
 
-PKG_FIXUP:=autoreconf
-
 
 include $(INCLUDE_DIR)/package.mk
 
