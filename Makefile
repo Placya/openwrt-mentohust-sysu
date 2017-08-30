@@ -40,6 +40,9 @@ define Build/Prepare
 	$(SED) 's/dhclient/udhcpc -i/g' $(PKG_BUILD_DIR)/src/myconfig.c
 endef
 
+# autogen first
+CONFIGURE_CMD =$(PKG_BUILD_DIR)/autogen.sh
+
 CONFIGURE_ARGS += \
 	--disable-encodepass \
 	--disable-notify
