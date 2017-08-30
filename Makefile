@@ -44,10 +44,6 @@ CONFIGURE_ARGS += \
 	--disable-encodepass \
 	--disable-notify
 
-define Build/Configure
-  $(call Build/Configure/Default, $(CONFIGURE_ARGS))
-endef
-
 # XXX: CFLAGS are already set by Build/Compile/Default
 MAKE_FLAGS+= \
 	OFLAGS=""
