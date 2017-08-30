@@ -43,7 +43,7 @@ define Build/Prepare
 endef
 
 # autogen first
-CONFIGURE_CMD =$(PKG_BUILD_DIR)/autogen.sh
+CONFIGURE_CMD =./autogen.sh
 
 CONFIGURE_ARGS += \
 	--disable-encodepass \
