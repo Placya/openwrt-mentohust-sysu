@@ -22,9 +22,7 @@ PKG_LICENSE:=GPLv3
 
 PKG_FIXUP:=autoreconf
 
-include $(INCLUDE_DIR)/nls.mk 
-
-PKG_BUILD_DEPENDES:=libintl-full libncurses
+PKG_BUILD_DEPENDES:=gettext
 
 include $(INCLUDE_DIR)/package.mk
 
