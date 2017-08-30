@@ -21,7 +21,6 @@ PKG_MAINTAINER:=Evans Mike (etnperlong@gmail.com)
 PKG_LICENSE:=GPLv3
 
 PKG_FIXUP:=autoreconf
-PKG_BUILD_DEPENDS:=gettext libiconv
 
 
 include $(INCLUDE_DIR)/package.mk
@@ -42,12 +41,6 @@ endef
 define Build/Prepare
 	$(call Build/Prepare/Default)
 	$(SED) 's/dhclient/udhcpc -i/g' $(PKG_BUILD_DIR)/src/myconfig.c
-endef
-
-# autogen first
-define Build/Configure
-	( cd $(PKG_BUILD_DIR); ./autogen.sh )
-	$(call Build/Configure/Default)
 endef
 
 CONFIGURE_ARGS += \
