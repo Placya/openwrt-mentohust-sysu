@@ -21,6 +21,7 @@ PKG_MAINTAINER:=Evans Mike (etnperlong@gmail.com)
 PKG_LICENSE:=GPLv3
 
 PKG_FIXUP:=libtool
+PKG_BUILD_DEPENDES:=libintl-full libncurses
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -43,7 +44,7 @@ define Build/Prepare
 endef
 
 # autogen first
-CONFIGURE_CMD =./autogen.sh
+CONFIGURE_CMD =$(PKG_BUILD_DIR)/autogen.sh
 
 CONFIGURE_ARGS += \
 	--disable-encodepass \
