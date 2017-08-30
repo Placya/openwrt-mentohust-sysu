@@ -54,6 +54,8 @@ define Package/mentohust/conffiles
 endef
 
 define Package/mentohust/install
+	$(CP) $(PKG_BUILD_DIR)/src/mentohust $(PKG_INSTALL_DIR)/usr/bin/mentohust
+	$(CP) $(PKG_BUILD_DIR)/src/mentohust.conf $(PKG_INSTALL_DIR)/etc/mentohust.conf
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/mentohust $(1)/usr/sbin/
 	chmod 755 $(1)/usr/sbin/
