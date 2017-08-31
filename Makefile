@@ -49,7 +49,8 @@ endef
 
 CONFIGURE_ARGS += \
 	--disable-encodepass \
-	--disable-notify
+	--disable-notify \
+	--enable-m4_pattern_allow 
 
 # XXX: CFLAGS are already set by Build/Compile/Default
 MAKE_FLAGS+= \
