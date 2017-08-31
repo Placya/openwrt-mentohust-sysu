@@ -24,12 +24,13 @@ PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
 PKG_FIXUP:=autoreconf
 
+include $(INCLUDE_DIR)/nls.mk
 include $(INCLUDE_DIR)/package.mk
 
 define Package/mentohust
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=+libpcap +libiconv +gettext +libintl
+	DEPENDS:=+libpcap $(ICONV_DEPENDS) $(INTL_DEPENDS)
 	TITLE:=MentoHUST
 	URL:=https://github.com/HustLion/mentohust
 	SUBMENU:=CERNET
