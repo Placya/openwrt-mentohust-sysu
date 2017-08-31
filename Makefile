@@ -48,11 +48,6 @@ CONFIGURE_ARGS += \
 	--disable-encodepass \
 	--disable-notify
 
-define Build/Configure
-	( cd $(PKG_BUILD_DIR); ./autogen.sh )
-	$(call Build/Configure/Default)
-endef
-
 # XXX: CFLAGS are already set by Build/Compile/Default
 MAKE_FLAGS+= \
 	OFLAGS=""
