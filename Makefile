@@ -24,6 +24,9 @@ PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
 PKG_FIXUP:=autoreconf
 
+include $(INCLUDE_DIR)/nls.mk 
+PKG_BUILD_DEPENDS:=libintl-full 
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/mentohust
