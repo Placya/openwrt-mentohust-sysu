@@ -24,15 +24,12 @@ PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
 PKG_FIXUP:=autoreconf
 
-include $(INCLUDE_DIR)/nls.mk 
-PKG_BUILD_DEPENDS:=libintl-full 
-
 include $(INCLUDE_DIR)/package.mk
 
 define Package/mentohust
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=+libpcap libiconv gettext
+	DEPENDS:=+libpcap +libiconv +gettext +libintl
 	TITLE:=MentoHUST
 	URL:=https://github.com/HustLion/mentohust
 	SUBMENU:=CERNET
@@ -49,8 +46,7 @@ endef
 
 CONFIGURE_ARGS += \
 	--disable-encodepass \
-	--disable-notify \
-	--enable-m4_pattern_allow 
+	--disable-notify
 
 # XXX: CFLAGS are already set by Build/Compile/Default
 MAKE_FLAGS+= \
