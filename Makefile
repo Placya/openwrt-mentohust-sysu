@@ -22,7 +22,7 @@ PKG_LICENSE:=GPLv3
 
 PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
-PKG_FIXUP:=autoreconf patch-libtool
+PKG_FIXUP:=autoreconf gettext-version
 
 include $(INCLUDE_DIR)/nls.mk
 include $(INCLUDE_DIR)/package.mk
