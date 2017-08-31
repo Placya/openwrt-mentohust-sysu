@@ -15,11 +15,14 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/Placya/mentohust-SYSU.git
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=a564cf617733c73b5bd733df523a06ecd386b29c
+PKG_SOURCE_VERSION:=595aa096f359e4bbf077ac0de3d10aa24882c568
 
 PKG_MAINTAINER:=Evans Mike (etnperlong@gmail.com)
 PKG_LICENSE:=GPLv3
 
+PKG_BUILD_PARALLEL:=1
+PKG_INSTALL:=1
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -44,6 +47,11 @@ endef
 CONFIGURE_ARGS += \
 	--disable-encodepass \
 	--disable-notify
+
+define Build/Configure
+	( cd $(PKG_BUILD_DIR); ./autogen.sh )
+	$(call Build/Configure/Default)
+endef
 
 # XXX: CFLAGS are already set by Build/Compile/Default
 MAKE_FLAGS+= \
