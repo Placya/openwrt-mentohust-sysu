@@ -29,7 +29,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/mentohust
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=+libpcap
+	DEPENDS:=+libpcap libiconv gettext
 	TITLE:=MentoHUST
 	URL:=https://github.com/HustLion/mentohust
 	SUBMENU:=CERNET
