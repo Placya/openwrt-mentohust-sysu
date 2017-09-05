@@ -22,7 +22,7 @@ PKG_LICENSE:=GPLv3
 
 PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
-PKG_FIXUP:=autoreconf
+# PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -47,6 +47,11 @@ endef
 CONFIGURE_ARGS += \
 	--disable-encodepass \
 	--disable-notify
+
+define Build/Configure
+	( cd $(PKG_BUILD_DIR); ./autogen.sh )
+	$(call Build/Configure/Default)
+endef
 
 # XXX: CFLAGS are already set by Build/Compile/Default
 MAKE_FLAGS+= \
