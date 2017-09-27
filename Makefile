@@ -46,7 +46,8 @@ endef
 
 CONFIGURE_ARGS += \
 	--disable-encodepass \
-	--disable-notify
+	--disable-notify \
+	--with-pcap=dylib
 
 define Build/Configure
 	( cd $(PKG_BUILD_DIR); ./autogen.sh )
