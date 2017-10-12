@@ -7,7 +7,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=mentohust-sysu-double
+PKG_NAME:=mentohust-sysu-triple
 PKG_VERSION:=0.4.17
 PKG_RELEASE:=1
 
@@ -15,8 +15,8 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/Placya/mentohust-SYSU.git
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=300d78c97c9dbc663771d2c2a966700eb724ff7c
-# Double
+PKG_SOURCE_VERSION:=08c73fefd91a220470209df69e1c413d7e98ea6f
+# Triple
 
 PKG_MAINTAINER:=Evans Mike (etnperlong@gmail.com)
 PKG_LICENSE:=GPLv3
@@ -27,16 +27,16 @@ PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/mentohust-sysu-double
+define Package/mentohust-sysu-triple
 	SECTION:=net
 	CATEGORY:=Network
 	DEPENDS:=+libpcap +libintl +libiconv
-	TITLE:=MentoHUST SYSU (Double)
+	TITLE:=MentoHUST SYSU (Triple)
 	URL:=https://github.com/Placya/mentohust-SYSU
 	SUBMENU:=CERNET
 endef
 
-define Package/mentohust-sysu-double/description
+define Package/mentohust-sysu-triple/description
 Open-source alternative to rjsupplicant.
 endef
 
@@ -59,21 +59,21 @@ endef
 MAKE_FLAGS+= \
 	OFLAGS=""
 
-define Package/mentohust-sysu-double/conffiles
-/etc/mentohust-sysu-double.conf
+define Package/mentohust-sysu-triple/conffiles
+/etc/mentohust-sysu-triple.conf
 endef
 
-define Package/mentohust-sysu-double/install
+define Package/mentohust-sysu-triple/install
 	mkdir -p $(PKG_INSTALL_DIR)/usr/bin
 	mkdir -p $(PKG_INSTALL_DIR)/etc
-	$(CP) $(PKG_BUILD_DIR)/src/mentohust $(PKG_INSTALL_DIR)/usr/bin/mentohust-sysu-double
+	$(CP) $(PKG_BUILD_DIR)/src/mentohust $(PKG_INSTALL_DIR)/usr/bin/mentohust-sysu-triple
 	# RENAME binary
-	$(CP) $(PKG_BUILD_DIR)/src/mentohust-sysu-double.conf $(PKG_INSTALL_DIR)/etc/mentohust-sysu-double.conf
+	$(CP) $(PKG_BUILD_DIR)/src/mentohust-sysu-triple.conf $(PKG_INSTALL_DIR)/etc/mentohust-sysu-triple.conf
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/mentohust-sysu-double $(1)/usr/sbin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/mentohust-sysu-triple $(1)/usr/sbin/
 	chmod 755 $(1)/usr/sbin/
 	$(INSTALL_DIR) $(1)/etc
-	$(INSTALL_CONF) $(PKG_INSTALL_DIR)/etc/mentohust-sysu-double.conf $(1)/etc/
+	$(INSTALL_CONF) $(PKG_INSTALL_DIR)/etc/mentohust-sysu-triple.conf $(1)/etc/
 endef
 
-$(eval $(call BuildPackage,mentohust-sysu-double))
+$(eval $(call BuildPackage,mentohust-sysu-triple))
