@@ -7,7 +7,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=mentohust
+PKG_NAME:=mentohust-sysu
 PKG_VERSION:=0.4.17
 PKG_RELEASE:=1
 
@@ -15,7 +15,8 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/Placya/mentohust-SYSU.git
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=595aa096f359e4bbf077ac0de3d10aa24882c568
+PKG_SOURCE_VERSION:=da3a1ced6a59e63bf89c6424810adf0bb66edd24
+# Specialize
 
 PKG_MAINTAINER:=Evans Mike (etnperlong@gmail.com)
 PKG_LICENSE:=GPLv3
@@ -26,16 +27,16 @@ PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/mentohust
+define Package/mentohust-sysu
 	SECTION:=net
 	CATEGORY:=Network
 	DEPENDS:=+libpcap +libintl +libiconv
-	TITLE:=MentoHUST
-	URL:=https://github.com/HustLion/mentohust
+	TITLE:=MentoHUST SYSU
+	URL:=https://github.com/Placya/mentohust-SYSU
 	SUBMENU:=CERNET
 endef
 
-define Package/mentohust/description
+define Package/mentohust-sysu/description
 Open-source alternative to rjsupplicant.
 endef
 
@@ -58,20 +59,21 @@ endef
 MAKE_FLAGS+= \
 	OFLAGS=""
 
-define Package/mentohust/conffiles
-/etc/mentohust.conf
+define Package/mentohust-sysu/conffiles
+/etc/mentohust-sysu.conf
 endef
 
-define Package/mentohust/install
+define Package/mentohust-sysu/install
 	mkdir -p $(PKG_INSTALL_DIR)/usr/bin
 	mkdir -p $(PKG_INSTALL_DIR)/etc
-	$(CP) $(PKG_BUILD_DIR)/src/mentohust $(PKG_INSTALL_DIR)/usr/bin/mentohust
-	$(CP) $(PKG_BUILD_DIR)/src/mentohust.conf $(PKG_INSTALL_DIR)/etc/mentohust.conf
+	$(CP) $(PKG_BUILD_DIR)/src/mentohust $(PKG_INSTALL_DIR)/usr/bin/mentohust-sysu
+	# RENAME binary
+	$(CP) $(PKG_BUILD_DIR)/src/mentohust-sysu.conf $(PKG_INSTALL_DIR)/etc/mentohust-sysu.conf
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/mentohust $(1)/usr/sbin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/mentohust-sysu $(1)/usr/sbin/
 	chmod 755 $(1)/usr/sbin/
 	$(INSTALL_DIR) $(1)/etc
-	$(INSTALL_CONF) $(PKG_INSTALL_DIR)/etc/mentohust.conf $(1)/etc/
+	$(INSTALL_CONF) $(PKG_INSTALL_DIR)/etc/mentohust-sysu.conf $(1)/etc/
 endef
 
-$(eval $(call BuildPackage,mentohust))
+$(eval $(call BuildPackage,mentohust-sysu))
