@@ -15,7 +15,7 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/Placya/mentohust-SYSU.git
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=da3a1ced6a59e63bf89c6424810adf0bb66edd24
+PKG_SOURCE_VERSION:=f93a2191ce62e5e051769043527e5fdc2e7c6459
 # Specialize
 
 PKG_MAINTAINER:=Evans Mike (etnperlong@gmail.com)
